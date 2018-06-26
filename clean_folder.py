@@ -2,7 +2,7 @@ import os
 import argparse
 import shutil
 
-documents = ['.pdf', '.doc', '.docx', '.txt','.csv', '.xlsx', '.pptx']
+documents = ['.pdf', '.doc', '.docx', '.txt','.csv', '.xlsx', '.pptx', '.xls']
 videos = ['.mp4', '.mpeg', '.mkv']
 programs = ['.deb', '.exe', '.msi']
 compressed = ['.zip','.rar','.gz','.tar','.tar.gz']
@@ -90,11 +90,11 @@ def move_files(target_path):
 				shutil.move(current_path, new_path)                   #move the file
 				print('moved {} to compressed'.format( file) )
 			elif not file_ext is None:
-				create_folder(target_path, 'unknown')
-				change = 'unknown/' + file
+				create_folder(target_path, 'Unknown')
+				change = 'Unknown/' + file
 				new_path = os.path.join(target_path, change)
 				shutil.move(current_path, new_path)                   #move the file
-				print('moved {} to unknown'.format(file) )
+				print('moved {} to Unknown'.format(file) )
 			else:
 			#   print('Is a directory:', file)
 			    pass
@@ -114,7 +114,7 @@ def main():
 	os.chdir(args.directory)
 	move_files(args.directory)
 
-	print([i for i in os.listdir(args.directory)] )
+	#print([i for i in os.listdir(args.directory)] )
 
 if __name__ == "__main__":
 	main()
